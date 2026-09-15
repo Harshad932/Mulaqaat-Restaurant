@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Utensils, ShoppingBag, Bell, Menu as MenuIcon, X, PhoneCall, Sparkles } from 'lucide-react';
+import { Utensils, ShoppingBag, Bell, Menu as MenuIcon, X, PhoneCall, Sparkles, Instagram, Youtube } from 'lucide-react';
 import { useOrder } from '../context/OrderContext';
+import { RESTAURANT_INFO } from '../data/restaurantInfo';
 
 export default function Navbar({ activeSection, setActiveSection }) {
   const { totalItemsCount, subtotal, setIsOrderDrawerOpen, setIsWaiterViewOpen } = useOrder();
@@ -61,7 +62,7 @@ export default function Navbar({ activeSection, setActiveSection }) {
                   Mulaqaat
                 </span>
                 <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-semibold bg-gold-600/30 text-gold-200 rounded border border-gold-500/40">
-                  Est. Tradition
+                  Lonavala
                 </span>
               </div>
               <p className="text-[11px] sm:text-xs tracking-widest text-amber-100/75 uppercase font-medium">
@@ -70,22 +71,42 @@ export default function Navbar({ activeSection, setActiveSection }) {
             </div>
           </button>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className={`px-3.5 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeSection === link.id
-                    ? 'bg-gold-600 text-stone-950 shadow-sm font-semibold'
-                    : 'text-stone-200 hover:text-gold-300 hover:bg-white/5'
-                }`}
+          {/* Desktop Navigation Links & Social Logos */}
+          <div className="hidden md:flex items-center gap-4">
+            <nav className="flex items-center gap-1 lg:gap-2">
+              {navLinks.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => handleNavClick(link.id)}
+                  className={`px-3.5 py-2 rounded-full text-sm font-medium transition-colors ${
+                    activeSection === link.id
+                      ? 'bg-gold-600 text-stone-950 shadow-sm font-semibold'
+                      : 'text-stone-200 hover:text-gold-300 hover:bg-white/5'
+                  }`}
+                >
+                  {link.label}
+                </button>
+              ))}
+            </nav>
+
+            {/* Social Logos (Unlinked) */}
+            <div className="flex items-center gap-2 pl-2 border-l border-brand-800/80">
+              <div
+                className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-gold-300/80 transition-colors cursor-default"
+                title="Instagram"
+                aria-label="Instagram"
               >
-                {link.label}
-              </button>
-            ))}
-          </nav>
+                <Instagram className="w-4 h-4" />
+              </div>
+              <div
+                className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-gold-300/80 transition-colors cursor-default"
+                title="YouTube"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-4 h-4" />
+              </div>
+            </div>
+          </div>
 
           {/* Action Buttons & Order Tray trigger */}
           <div className="flex items-center gap-2 sm:gap-3">
@@ -157,6 +178,25 @@ export default function Navbar({ activeSection, setActiveSection }) {
                 )}
               </button>
             ))}
+
+            {/* Social Logos on Mobile Menu */}
+            <div className="pt-2 pb-1 flex items-center justify-between px-2 text-xs text-stone-400 border-t border-brand-800/60">
+              <span>Follow Us:</span>
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gold-300 cursor-default"
+                  title="Instagram"
+                >
+                  <Instagram className="w-4 h-4" />
+                </div>
+                <div
+                  className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gold-300 cursor-default"
+                  title="YouTube"
+                >
+                  <Youtube className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
 
             {totalItemsCount > 0 && (
               <div className="pt-2 border-t border-brand-800/60 flex gap-2">

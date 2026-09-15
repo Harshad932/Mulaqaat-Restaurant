@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Clock, Heart, Utensils } from 'lucide-react';
+import { Phone, MapPin, Clock, Heart, Utensils, Instagram, Youtube } from 'lucide-react';
 import { RESTAURANT_INFO } from '../data/restaurantInfo';
 
 export default function Footer({ onNavigate }) {
@@ -30,11 +30,34 @@ export default function Footer({ onNavigate }) {
             </div>
 
             <p className="text-stone-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Authentic Indian, Tandoor & Chinese culinary excellence crafted for joyful family moments and cherished memories.
+              Authentic Indian, Tandoor & Chinese culinary excellence crafted for joyful family moments and cherished memories in Lonavala.
             </p>
 
-            <div className="pt-2 text-xs text-gold-400/90 font-medium">
+            <div className="pt-1 text-xs text-gold-400/90 font-medium">
               "Har Mulaqaat Ko Banayein Zaikedaar Aur Khaas"
+            </div>
+
+            {/* Social Logos (Instagram & YouTube - unlinked as requested) */}
+            <div className="pt-2">
+              <p className="text-[11px] uppercase tracking-wider text-stone-400 font-semibold mb-2">
+                Follow Our Journey
+              </p>
+              <div className="flex items-center gap-2.5">
+                <div
+                  className="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-600/30 to-rose-600/30 border border-gold-500/40 flex items-center justify-center text-gold-300 shadow-sm transition-transform cursor-default"
+                  title="Instagram (Coming Soon)"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-4 h-4" />
+                </div>
+                <div
+                  className="w-9 h-9 rounded-full bg-gradient-to-tr from-red-600/30 to-rose-700/30 border border-gold-500/40 flex items-center justify-center text-gold-300 shadow-sm transition-transform cursor-default"
+                  title="YouTube (Coming Soon)"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-4 h-4" />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -79,15 +102,15 @@ export default function Footer({ onNavigate }) {
             </ul>
           </div>
 
-          {/* Contact Details */}
+          {/* Contact Details with updated Address and Timings */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="font-serif font-bold text-sm text-gold-200 uppercase tracking-wider">
-              Visit Us
+              Visit Us in Lonavala
             </h4>
-            <div className="space-y-2.5 text-xs sm:text-sm text-stone-400">
+            <div className="space-y-3 text-xs sm:text-sm text-stone-300">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
-                <span>{RESTAURANT_INFO.address}</span>
+                <span className="leading-relaxed">{RESTAURANT_INFO.address}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-gold-400 shrink-0" />
@@ -95,7 +118,12 @@ export default function Footer({ onNavigate }) {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-gold-400 shrink-0" />
-                <span>{RESTAURANT_INFO.phone}</span>
+                <a
+                  href={`tel:${RESTAURANT_INFO.whatsapp}`}
+                  className="hover:text-gold-300 font-semibold transition-colors"
+                >
+                  {RESTAURANT_INFO.phone}
+                </a>
               </div>
             </div>
           </div>

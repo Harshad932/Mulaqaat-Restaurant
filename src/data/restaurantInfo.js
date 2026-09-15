@@ -1,11 +1,13 @@
 export const RESTAURANT_INFO = {
   name: "Mulaqaat Family Restaurant",
   tagline: "Where Authentic Flavors Meet Warm Family Gatherings",
-  shortDesc: "Experience the royal heritage of slow-cooked Mughlai curries, smoky charcoal tandoor, rich dum biryanis, and sizzling Chinese delicacies.",
-  phone: "+91 98765 43210",
-  whatsapp: "+919876543210",
-  address: "Station Road, Near Central Plaza, Mulaqaat Square",
-  timings: "Open Daily: 11:00 AM – 11:30 PM",
+  shortDesc: "Experience the royal heritage of slow-cooked Mughlai curries, smoky charcoal tandoor, rich dum biryanis, and sizzling Chinese delicacies in Lonavala.",
+  phone: "+91 93596 05144",
+  phoneDisplay: "+91 93596 05144",
+  whatsapp: "+919359605144",
+  address: "Bunglow : 2, Gautam Park Society, Old Mumbai Pune Hwy, Rao Colony, Lonavala, Maharashtra 410401",
+  shortAddress: "Old Mumbai Pune Hwy, Rao Colony, Lonavala",
+  timings: "Open Daily: 10:00 AM – 11:00 PM",
   seating: "Spacious AC & Non-AC Family Seating Available",
   highlights: [
     {
@@ -28,6 +30,10 @@ export const RESTAURANT_INFO = {
       desc: "Finest quality cuts, farm-fresh produce, and pure desi ghee preparations.",
       icon: "ShieldCheck"
     }
+  ],
+  socials: [
+    { name: "Instagram", icon: "Instagram" },
+    { name: "YouTube", icon: "Youtube" }
   ],
   testimonials: [
     {
